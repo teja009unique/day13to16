@@ -1,0 +1,193 @@
+Q) What are the methods used in files and what are the modes in it?
+A) Files have 3 modes,
+	(1) r - read
+	(2) w - write
+	(3) a - append
+
+  The methods used in files are,
+	* open()
+	* write()
+	* read()
+	* readlines()
+	* close()
+
+
+ Ex: 
+  file = open("new.txt","w")        //file created
+  file.write("hello world")         //we have written in that file
+  file = open("new.txt","r")        //reading the file
+  print(file.read())
+
+
+o/p: hello world
+
+
+--> If the file does not exist till now, we can pass "w" mode and create a new file.
+    If "w" is passed to already created file, we can write in that file.
+
+
+
+
+
+Ex:  file = open("new.txt","w")        //file created
+     file.write("hello world")         //we have written in that file
+     file = open("new.txt","r")        //reading the file
+     print(file.read(5))               // it will print only till 5 characters in that file
+
+o/p: hello
+
+
+
+---> After writing in a file, we should close the file using close() method.
+
+
+
+
+---> If we want to append a file,
+
+Ex: 
+  file = open("new.txt","a")      
+  file.write("30 day bootcamp") 
+  file.close()        
+  file = open("new.txt","r")       
+  print(file.read())
+
+
+o/p: hello world 30 day bootcamp
+
+
+
+
+
+
+---->
+Ex:
+  file = open("new.txt","w") 
+  file.write("hello world")     
+  file.write("welcome to programing in telugu \n we are attending python bootcamp") 
+  file.close()        
+  file = open("new.txt","r")       
+  print(file.read())
+
+o/p: hello world welcome to programing in telugu
+     we are attending python bootcamp
+
+
+
+If we want to read only in 1 line, we use readlines() method
+Ex: 
+  file = open("new.txt","a")      
+  file.write("30 day bootcamp") 
+  file.close()        
+  file = open("new.txt","r")       
+  print(file.readlines())
+
+o/p: ['hello world welcome to programing in telugu \n' , 'we are attending python bootcamp 30 day bootcamp']
+
+
+
+If we want to read a specific line,
+Ex:
+  file = open("new.txt","a")      
+  file.write("30 day bootcamp") 
+  file.close()        
+  file = open("new.txt","r")       
+  print(file.readlines(1))
+
+o/p: ['hello world welcome to programing in telugu \n']
+
+
+
+
+
+--------------------------------------------------------------------------------------------
+
+Q) What is lambda function and when we will use it?
+A) If we want to create a function in a single line, we use Lambda function
+   Lambda functions are used for higher order functions.
+   We use lambda functions when we want to pass data in a single line for a higher order function. 
+   We can pass lambda function as parameter to another function.
+   When we want to pass input to higher order functions, we use lambda function as input to higher order function.
+
+   Ex:
+      subtraction = lambda a,b : a-b
+      print(subtraction(1,2))
+
+   o/p: -1
+
+
+---------------------------------------------------------------------------------------------
+Q) Why lambda function is called as Anonymous function?
+A) Because we do not use any data type, we do not use 'def'.
+   Because we won't specify any keywords in it ; no 'return' statements are used.
+
+-------------------------------------------------------------------------------------------
+Q) What are higher order functions?
+A) To give one function as input to another function.
+   We can pass one function as a parameter / argument to another function.
+   These are called higher order functions.
+   Map() and Filter() are higher order functions.
+--------------------------------------------------------------------------------------------
+
+
+Q) What is map(). Which parameters will it take ?
+A) Syntax of map() is,
+	map(function, iterative value)
+
+  The parameters which map() will take are function and iterative val ues like list/tuple/variables.
+
+
+
+
+map(square,list)
+It will map the square function with each and every value of List.
+Now, we need to keep all the calculated values in a list.
+So, we write     list(map(square,List))
+
+
+
+
+
+ Ex:
+    def square(x):
+        return x*x
+    List = [1,2,3,4]
+    List1 = list(map(square,List))
+    print(List1)
+
+ o/p: [1,4,9,16]
+
+
+------------------------------------------------------------------------------------------------
+
+Q) What is filter(). Which parameters will it take?
+A) filter() method is like a funnel.
+   It will have a condition.
+   If the condition is fulfilled, it will pass into the list/container.
+   If the condition is not met, it will stop.
+   So, filter() method will function as a funnel.
+   In funnel, a method(condition) is declared.
+
+
+   Syntax:    filter(function/condition , iterative value)
+
+
+It will take a function or a condition and an iterative values like lists, tuples, variables, etc...
+
+
+Ex:
+  List = [1,2,3,4]
+  List1 = list(filter(lambda x : x>2 , List))
+  print(List1)
+
+
+o/p: [3,4]
+
+
+-------------------------------------------------------------------------------------------
+
+Q) When we will use map() method and when we will use filter() method?
+A) If any operation has to be performed after sending the arguments to a function, we use map() method.
+   If any conditions have to be filtered out after sending the arguments to a function, we use filter() method.
+
+
